@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+        xmlns:th="http://www.thymeleaf.org"
+>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href = "@{/css/style.css}" rel="stylesheet">
+    <script type="text/javascript" th:src = "@{/js/actions.js}"></script>
 </head>
 <body>
-<h1>test</h1>
+
+<h1 th:text="'Test of message' + ${message} + ' working!'"></h1>
+<button type = "button" th:onclick="demo()"> TEST</button>
 </body>
 </html>
