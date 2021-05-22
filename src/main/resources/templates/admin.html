@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Workers</title>
+        <link rel="stylesheet" href="../css/styles-workersI .css" th:href="@{../css/styles-workers.css}">
+    </head>
+
+<body>
+    <div class="wrapper">
+        <!-- navigation -->
+        <nav class="main-nav">
+            <ul>
+                <li> <a href="workers.html">Pracownik</a></li>
+                <li> <a href="admin.html">Administrator</a></li>
+            </ul>
+        </nav>
+        <p th:text="${screeningEntity}"/>
+        <p th:text="${movieEntity}"/>
+        <p th:text="${movieScreeningEntity}"/>
+
+        <div class="repertuar">
+            <h2>Zarządzanie seansami Administrator</h2>
+			<button onclick="openWin()" class="add" >Dodaj</button>
+
+            <div th:if="${not #lists.isEmpty(movieScreeningEntity)}" >
+                <h2> Screening list</h2>
+
+                    <ul class="np" th:each="movieScreeningEntity : ${movieScreeningEntity}">
+                        <li th:text="${movieScreeningEntity.id} + ' ' + ${movieScreeningEntity.screeningDate} + ' ' + ${movieScreeningEntity.movieTitle}"></li>
+                    </ul>
+
+            </div>
+
+
+            <li class="np">10:00 <a href="#">King kong</a> <button onclick="openWin()" class="buy-ticket">Kup bilet</button></li>
+
+        </div>
+
+        <script>
+            var myWindow;
+            
+            function openWin() {
+              myWindow = window.open("webpages/add-movie.html", "", "width=500, height=500");
+            }
+            
+            function resizeWin() {
+              myWindow.resizeTo(250, 250);
+              myWindow.focus();
+            }
+            </script>
+
+    </div>
+</body>
+</html>
