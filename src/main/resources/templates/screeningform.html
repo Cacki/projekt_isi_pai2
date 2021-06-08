@@ -2,23 +2,39 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Workers</title>
-        <link rel="stylesheet" href="../css/styles-workers.css" th:href="@{../css/styles-workers.css}">
+        <link rel="stylesheet" href="../css/styles-workersI .css" th:href="@{../css/styles-workers.css}">
     </head>
 
 <body>
-    <div class="wrapper">
-        <!-- navigation -->
-        <nav class="main-nav">
-            <ul>
-                <li> <a href="workers.html">Pracownik</a></li>
-                <li> <a href="admin.html">Administrator</a></li>
-            </ul>
-        </nav>
-  <!--      <p th:text="${screeningEntity}"/>
-        <p th:text="${movieEntity}"/>-->
-        <p th:text="${movieScreeningEntity}"/>
+       <form th:action="@{/screeningform}" th:object="${screeningForm}" method="POST">
+            <table>
+                <tr>
+                    <td>Screening ID</td>
+                    <td><input type="text" name="id"/></td>
+                </tr>
+                <tr>
+                    <td>Screening Date</td>
+                    <td><input type="text" name="date"/></td>
+                </tr>
+                <tr>
+                    <td>Screening movieId</td>
+                    <td>
+                        <select name="movieId">
+                            <option th:each="movies :${movieList}"
+                            th:text="${movies.title}" th:value="${movies.id}"
+                            />
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Screening auditoriumId</td>
+                    <td><input type="text" name="auditoriumId"/></td>
+                </tr>
+            </table>
+            <input type="submit" value="Save"/>
 
-
+        </form>
+<!--
 
         <div class="repertuar">
             <h2>Zarządzanie seansami Administrator</h2>
@@ -42,13 +58,13 @@
             <li class="np">10:00 <a href="#">King kong</a> <button onclick="openWin()" class="buy-ticket">Kup bilet</button></li>
 
         </div>
-
+-->
 
         <script>
             var myWindow;
             
             function openWin() {
-              myWindow = window.open("webpages/screeningform.html", "", "width=500, height=500");
+              myWindow = window.open("webpages/add-movie.html", "", "width=500, height=500");
             }
             
             function resizeWin() {

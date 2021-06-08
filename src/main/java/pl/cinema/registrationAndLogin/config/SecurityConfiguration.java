@@ -49,7 +49,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 						"/prices",
 						"/events",
 						"/special-offers",
-						"/screening"
+						"/screening",
+						"/screeningform"
 				).permitAll()
 				.antMatchers(
 						"/css/*",

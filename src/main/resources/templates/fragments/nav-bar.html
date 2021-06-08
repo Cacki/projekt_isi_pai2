@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+ <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" th:fragment="nav-bar">
+    <a class="navbar-brand" href="index.html" th:href="@{/}">Ciinema</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="repertuar.html" th:href="@{/repertuar}">Repertuar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="prices.html" th:href="@{prices}">Cennik</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="events.html" th:href="@{events}">Wydarzenia</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="special-offers.html" th:href="@{special-offers}">Promocje</a>
+            </li>
+        </ul>
+        <form action="register.html" th:action="@{/registration}" class="form-inline my-2 my-lg-0">
+            <button class="btn btn-primary m-2 my-2 my-sm-0 visibility" type="submit"
+                    value="register">Rejestracja</button>
+        </form>
+        <form action="login.html" th:action="@{/login}" class="form-inline my-2 my-lg-0">
+            <button class="btn btn-primary  my-2 my-sm-0 visibility" type="submit" value="login">Logowanie</button>
+        </form>
+    </div>
+</nav>
+</body>
+</html>

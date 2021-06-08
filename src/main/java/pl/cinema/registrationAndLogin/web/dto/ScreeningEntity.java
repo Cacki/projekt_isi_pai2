@@ -12,6 +12,7 @@ public class ScreeningEntity {
     private Integer auditoriumId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public Integer getId() {
         return id;
@@ -80,5 +81,16 @@ public class ScreeningEntity {
     public String toString(){
         return id + " " + screeningDate + " " + movieId + " " + auditoriumId;
     }
+
+
+   /* public ScreeningEntity(Integer id, Date screeningDate, String movieId,Integer auditoriumId){
+        this.id=id;
+       this.screeningDate=screeningDate;
+       this.movieId=movieId;
+       this.auditoriumId=auditoriumId;
+
+    }*/
+
+
 
 }
